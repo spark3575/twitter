@@ -11,11 +11,16 @@ import Twitter
 
 class TweetTableViewCell: UITableViewCell
 {
+    // outlets to the UI components in our Custom UITableViewCell
     @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetCreatedLabel: UILabel!
     @IBOutlet weak var tweetUserLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
 
+    // public API of this UITableViewCell subclass
+    // each row in the table has its own instance of this class
+    // and each instance will have its own tweet to show
+    // as set by this var
     var tweet: Twitter.Tweet? { didSet { updateUI() } }
     
     // whenever our public API tweet is set
