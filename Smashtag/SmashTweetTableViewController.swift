@@ -40,15 +40,19 @@ class SmashTweetTableViewController: TweetTableViewController
                 } else {
                     print("off main thread")
                 }
+                // bad way to count
                 if let tweetCount = (try? context.fetch(Tweet.fetchRequest()))?.count {
                     print("\(tweetCount) tweets")
                 }
+                // good way to count
                 if let tweeterCount = try? context.count(for: TwitterUser.fetchRequest()) {
                     print("\(tweeterCount) Twitter users")
                 }
             }
         }
     }
+    
+    // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Tweeters Mentioning Search Term" {
