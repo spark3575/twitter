@@ -28,6 +28,7 @@ class TweetTableViewCell: UITableViewCell
     private func updateUI() {
         tweetTextLabel?.text = tweet?.text
         tweetUserLabel?.text = tweet?.user.description
+        
         if let profileImageURL = tweet?.user.profileImageURL {
             
             // FIXME: blocks main thread
